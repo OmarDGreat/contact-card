@@ -9,9 +9,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../css/index.css";
 
 // Import images
-import Logo from '../images/logo.png';
+import Logo from '../images/new-logo.png';
 import Bear from '../images/bear.png';
 import Dog from '../images/dog.png';
+
 
 // Add images on load
 window.addEventListener('load', function () {
