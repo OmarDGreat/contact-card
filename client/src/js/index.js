@@ -1,10 +1,9 @@
 // Import modules
 import  "./form";
 import "./submit";
-
 import { initdb } from './database';
 
-
+// Import Bootstrap
 import { Tooltip, Toast, Popover } from 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

@@ -12,22 +12,12 @@
     "client": "cd client && npm start",
     "heroku-prebuild": "npm install --dev"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/OmarDGreat/contact-card.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/OmarDGreat/contact-card/issues"
-  },
-  "homepage": "https://github.com/OmarDGreat/contact-card#readme",
   "dependencies": {
-    "concurrently": "^7.4.0",
-    "node": "^18.11.0"
+    "concurrently": "^7.0.0"
   },
   "engines": {
-    "node": "17.x"
+    "node": "16.x"
   }
 }
