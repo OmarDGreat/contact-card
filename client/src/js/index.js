@@ -1,7 +1,7 @@
 // Import modules
+import { initdb, getDb, postDb } from './database';
 import  "./form";
 import "./submit";
-import { initdb } from './database';
 
 // Import Bootstrap
 import { Tooltip, Toast, Popover } from 'bootstrap';
