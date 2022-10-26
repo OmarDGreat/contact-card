@@ -30,9 +30,9 @@ const newContactButton = document.getElementById("new-contact");
 let submitBtnToUpdate = false;
 let profileId;
 
-newContactButton.addEventListener('click', event => {
+newContactButton.addEventListener('click', (event) => {
  toggleForm()
-})
+});
 
 form.addEventListener('submit', (event) => {
   // handle the form data

@@ -1,7 +1,7 @@
 // Import modules
-import { initdb, getDb, postDb } from "./database";
+import { initdb, getDb, postDb, deleteDb } from "./database";
 import { fetchCards } from "./cards";
-import { toggleForm, clearForm } from './form';
+import { toggleForm, clearForm } from "./form";
 
 // Import Bootstrap
 import { Tooltip, Toast, Popover } from "bootstrap";
@@ -47,14 +47,28 @@ form.addEventListener("submit", (event) => {
     postDb(name, email, phone, profile);
   } else {
     fetchCards();
+    
     // Toggles the submit button back to POST functionality
     submitBtnToUpdate = false;
   }
-
+    
   // Clear form
-  clearForm();
-  // Toggle form
-  toggleForm();
-  // Reload the DOM
-  fetchCards();
-});
+    clearForm();
+    // Toggle form
+    toggleForm();
+    // Reload the DOM
+    fetchCards();
+  })
+
+
+  
+  // Card functionality
+  // Adds deleteCard() to the global scope so each card has access to it.
+  window.deleteCard = (e) => {
+    // Grabs the id from the button element attached to the contact card.
+    let id = parseInt(e.id);
+    // Delete the card
+    deleteDb(id);
+    // Reload the DOM
+    fetchCards();
+  };
