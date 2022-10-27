@@ -1,14 +1,14 @@
-// Import modules
-import { initdb, getDb, postDb, deleteDb } from "./database";
-import { fetchCards } from "./cards";
-import { toggleForm, clearForm } from "./form";
-
-// Import Bootstrap
-import { Tooltip, Toast, Popover } from "bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+// Import functions
+import {initdb, postDb, deleteDb, editDb} from './database';
+import {fetchCards} from './cards';
+import { toggleForm, clearForm } from './form';
 
 // Import CSS files
 import "../css/index.css";
+
+// Import Bootstrap
+import { Tooltip, Toast, Popover } from 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Import images
 import Logo from "../images/logo.png";
@@ -60,8 +60,6 @@ form.addEventListener("submit", (event) => {
     fetchCards();
   })
 
-
-  
   // Card functionality
   // Adds deleteCard() to the global scope so each card has access to it.
   window.deleteCard = (e) => {
@@ -72,3 +70,25 @@ form.addEventListener("submit", (event) => {
     // Reload the DOM
     fetchCards();
   };
+
+  // Adds editCard() to the global scope so each card has access to it.
+  window.editCard = (e) => {
+    // Grabs the id from the button element attached to the contact card and sets a global variable that will be used in the form element.
+    profileId = parseInt(e.dataset.id);
+  
+    // Grabs information to pre-populate edit form
+    let editName = e.dataset.name;
+    let editEmail = e.dataset.email;
+    let editPhone = e.dataset.phone;
+  
+    document.getElementById("name").value = editName;
+    document.getElementById("email").value = editEmail;
+    document.getElementById("phone").value = editPhone;
+  
+    form.style.display = "block";
+  
+  // Toggles the submit button so that it now Updates an existing contact instead of posting a new one
+      submitBtnToUpdate = true;
+  };
+
+
