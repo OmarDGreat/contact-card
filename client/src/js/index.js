@@ -15,7 +15,6 @@ import Logo from "../images/logo.png";
 import Bear from "../images/bear.png";
 import Dog from "../images/dog.png";
 
-
 // Add images on load
 window.addEventListener("load", function () {
   initdb();
@@ -92,9 +91,23 @@ form.addEventListener("submit", (event) => {
       submitBtnToUpdate = true;
   };
 
-
   if ('serviceWorker' in navigator) {
     // Use the window load event to keep the page load performant
     window.addEventListener('load', () => {
     navigator.serviceWorker.register('./service-worker.js');
   })};
+
+  const installBtn = document.getElementById("installBtn");
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    installBtn.style.visibility = 'visible';
+    installBtn.addEventListener('click', () => {
+      event.prompt();
+      installBtn.setAttribute('disabled', true);
+      installBtn.textContent = 'Installed!';
+      });
+    });
+
+    window.addEventListener('appinstalled', (event) => {
+      console.log('👍', 'appinstalled', event);
+    });
